@@ -1,0 +1,23 @@
+{
+  "name": "@fastcampus/storybook",
+  "packageManager": "yarn@4.6.0",
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.6.20",
+    "@storybook/addon-interactions": "7.6.20",
+    "@storybook/addon-links": "7.6.20",
+    "@storybook/addon-onboarding": "1.0.11",
+    "@storybook/blocks": "7.6.20",
+    "@storybook/react": "7.6.20",
+    "@storybook/react-vite": "7.6.20",
+    "@storybook/test": "7.6.20",
+    "prop-types": "15.8.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "storybook": "7.6.20",
+    "vite": "^6.0.7"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  }
+}

@@ -1,7 +1,13 @@
 {
-  "extends":"../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "declaration": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "skipLibCheck": true
   }
 }
 // esbuild는 tsconfig 전부를 설정해주는 것이 아니라 특정 속성만 설정할 수 있다.
