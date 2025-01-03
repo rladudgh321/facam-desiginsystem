@@ -36,7 +36,7 @@ const generateThemeCssVariables = () => {
       return;
     }
 
-    //타이포그래피
+    //타이포그래피, box(shadow radii spacing)
     const selector = ':root';
     const cssVariables = Object.entries(value).map(([mainkey, mainValue]) => 
       Object.entries(mainValue).map(([subkey, subValue]) => `--${toCssCasting(mainkey)}-${subkey}: ${subValue};`).join('\n')
