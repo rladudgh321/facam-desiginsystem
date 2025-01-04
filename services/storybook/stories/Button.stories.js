@@ -13,6 +13,7 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
+    color: { control: 'color' }
   },
 };
 
@@ -21,12 +22,14 @@ export const Primary = {
   args: {
     primary: true,
     label: 'Button',
+    color: 'green'
   },
 };
 
 export const Secondary = {
   args: {
     label: 'Button',
+    color: 'blue'
   },
 };
 
@@ -34,6 +37,7 @@ export const Large = {
   args: {
     size: 'large',
     label: 'Button',
+    color: 'red'
   },
 };
 
@@ -41,5 +45,6 @@ export const Small = {
   args: {
     size: 'small',
     label: 'Button',
+    color: 'red'
   },
 };

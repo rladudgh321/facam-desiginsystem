@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "build": "nx build",
+    "build:init": "nx run-many --target=build --projects='@fastcampus/themes'",
     "graph": "nx run-many --target=build --graph",
     "dev:storybook": "nx storybook @fastcampus/storybook",
     "dev:packages": "nx run-many --target=dev --projects='@fastcampus/react-components-*'",
@@ -28,25 +29,5 @@
     "nx": "20.3.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
-  },
-  "dependenciesMeta": {
-    "@storybook/react@8.4.7": {
-      "unplugged": true
-    },
-    "react@19.0.0": {
-      "unplugged": true
-    },
-    "react-confetti@5.0.0": {
-      "unplugged": true
-    },
-    "react-confetti@6.2.2": {
-      "unplugged": true
-    },
-    "react-dom@19.0.0": {
-      "unplugged": true
-    },
-    "storybook@8.4.7": {
-      "unplugged": true
-    }
   }
 }

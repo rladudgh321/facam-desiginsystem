@@ -2177,7 +2177,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fastcampus/react-components-layout@workspace:packages/react/components/layout":
+"@fastcampus/react-components-layout@workspace:^, @fastcampus/react-components-layout@workspace:packages/react/components/layout":
   version: 0.0.0-use.local
   resolution: "@fastcampus/react-components-layout@workspace:packages/react/components/layout"
   dependencies:
@@ -2200,6 +2200,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fastcampus/storybook@workspace:services/storybook"
   dependencies:
+    "@fastcampus/react-components-layout": "workspace:^"
+    "@fastcampus/themes": "workspace:^"
     "@storybook/addon-essentials": "npm:7.6.20"
     "@storybook/addon-interactions": "npm:7.6.20"
     "@storybook/addon-links": "npm:7.6.20"
@@ -2209,9 +2211,10 @@ __metadata:
     "@storybook/react-vite": "npm:7.6.20"
     "@storybook/test": "npm:7.6.20"
     prop-types: "npm:15.8.1"
-    react: "npm:19.0.0"
-    react-dom: "npm:19.0.0"
+    react: "npm:18.0.0"
+    react-dom: "npm:18.0.0"
     storybook: "npm:7.6.20"
+    storybook-addon-root-attributes: "npm:^2.1.3"
     vite: "npm:^6.0.7"
   languageName: unknown
   linkType: soft
@@ -7788,19 +7791,6 @@ __metadata:
     nx: "npm:20.3.0"
     prettier: "npm:^3.0.3"
     typescript: "npm:^5.2.2"
-  dependenciesMeta:
-    "@storybook/react@8.4.7":
-      unplugged: true
-    react-confetti@5.0.0:
-      unplugged: true
-    react-confetti@6.2.2:
-      unplugged: true
-    react-dom@19.0.0:
-      unplugged: true
-    react@19.0.0:
-      unplugged: true
-    storybook@8.4.7:
-      unplugged: true
   languageName: unknown
   linkType: soft
 
@@ -11186,14 +11176,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:19.0.0":
-  version: 19.0.0
-  resolution: "react-dom@npm:19.0.0"
+"react-dom@npm:18.0.0":
+  version: 18.0.0
+  resolution: "react-dom@npm:18.0.0"
   dependencies:
-    scheduler: "npm:^0.25.0"
+    loose-envify: "npm:^1.1.0"
+    scheduler: "npm:^0.21.0"
   peerDependencies:
-    react: ^19.0.0
-  checksum: 10c0/a36ce7ab507b237ae2759c984cdaad4af4096d8199fb65b3815c16825e5cfeb7293da790a3fc2184b52bfba7ba3ff31c058c01947aff6fd1a3701632aabaa6a9
+    react: ^18.0.0
+  checksum: 10c0/78aa393ab4ae35f7266ba5cd761ebd35cab8375f63051bda2bb97a27be2622dbd661b24b32b8e55f9365aa027e732251e7d0d754c755f8efb6bd38a72ba03df8
   languageName: node
   linkType: hard
 
@@ -11306,10 +11297,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:19.0.0":
-  version: 19.0.0
-  resolution: "react@npm:19.0.0"
-  checksum: 10c0/9cad8f103e8e3a16d15cb18a0d8115d8bd9f9e1ce3420310aea381eb42aa0a4f812cf047bb5441349257a05fba8a291515691e3cb51267279b2d2c3253f38471
+"react@npm:18.0.0":
+  version: 18.0.0
+  resolution: "react@npm:18.0.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/cf55bc7b4315f54321d04cb0b69241c4973a5182d679551b3e6c3f57b312a4fdeac05038ca9502d48ea4d040d7550b0b7f07b3872a19589a5995ee899cc19d2b
   languageName: node
   linkType: hard
 
@@ -11815,19 +11808,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"scheduler@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "scheduler@npm:0.21.0"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/083a9a0c83f4923f7f5bb28d8bcf13cff42c90f4303bc187166520fcfc576c97e946d426c707d5a9c0aa0a655819605dd0c741467c626824bbf191251c126f1b
+  languageName: node
+  linkType: hard
+
 "scheduler@npm:^0.23.2":
   version: 0.23.2
   resolution: "scheduler@npm:0.23.2"
   dependencies:
     loose-envify: "npm:^1.1.0"
   checksum: 10c0/26383305e249651d4c58e6705d5f8425f153211aef95f15161c151f7b8de885f24751b377e4a0b3dd42cce09aad3f87a61dab7636859c0d89b7daf1a1e2a5c78
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.25.0":
-  version: 0.25.0
-  resolution: "scheduler@npm:0.25.0"
-  checksum: 10c0/a4bb1da406b613ce72c1299db43759526058fdcc413999c3c3e0db8956df7633acf395cb20eb2303b6a65d658d66b6585d344460abaee8080b4aa931f10eaafe
   languageName: node
   linkType: hard
 
@@ -12196,6 +12191,21 @@ __metadata:
   version: 2.14.4
   resolution: "store2@npm:2.14.4"
   checksum: 10c0/3453c9c8c153c760e6290395a7bc23669df5dc8a6e8a49f9b3187dbb9f86d14b58705aa4f17fad6b536d4b04fe3e66ea5bde12c1352abd52c6b303bbf5757ab6
+  languageName: node
+  linkType: hard
+
+"storybook-addon-root-attributes@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "storybook-addon-root-attributes@npm:2.1.3"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/9e68a60a8e12c0cb6bc182f44ebf9e3b9d0e1e8449a509cc568b04ef2000bf281378bfa58b68aa23f3cd000db9e9b02f2d9ea9fe3b4dc7e103f9329a00f7bea3
   languageName: node
   linkType: hard
 
