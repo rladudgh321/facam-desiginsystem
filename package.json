@@ -6,12 +6,12 @@
     "services/**/*"
   ],
   "scripts": {
-    "build": "nx build",
     "build:init": "nx run-many --target=build --projects='@fastcampus/themes'",
+    "dev:all": "yarn dev:storybook & yarn dev:packages",
+    "build": "nx build",
     "graph": "nx run-many --target=build --graph",
     "dev:storybook": "nx storybook @fastcampus/storybook",
-    "dev:packages": "nx run-many --target=dev --projects='@fastcampus/react-components-*'",
-    "dev:all": "yarn dev:storybook & yarn dev:packages"
+    "dev:packages": "nx run-many --target=dev --projects='@fastcampus/react-components-*'"
   },
   "packageManager": "yarn@4.6.0",
   "devDependencies": {

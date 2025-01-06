@@ -1,5 +1,8 @@
 // BOX props가 다양한 props 들에게(TEXT) 전역으로 사용되기 때문에 core에서 사용하게 만든다
 
+import { StyleSprinkles } from "./style.css";
+import { vars } from '@fastcampus/themes';
+
 type AsProps = {
   as?: Exclude<keyof JSX.IntrinsicElements, keyof SVGElementTagNameMap>
 }
@@ -8,6 +11,14 @@ type ElementProps = Omit<React.HTMLAttributes<HTMLElement>, "as">;
 
 export type AsElementProps = AsProps & ElementProps;
 
+
+
+type ColorProps = {
+  color: keyof typeof vars.colors.$scale & string;
+  background: keyof typeof vars.colors.$scale & string;
+}
+
+export type StyleProps = Parameters<typeof StyleSprinkles>[0] & ColorProps;
 
 // // 이 예시에서는 T가 name 속성을 가진 객체만 받도록 제약을 둡니다
 // function identity<T extends { name: string }>(arg: T): T {
