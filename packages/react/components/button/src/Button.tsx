@@ -34,11 +34,13 @@ const Button = (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
   const disabled = isDisabled || isLoading;
   return (
     <button 
+    {...props} 
       onKeyDown={handleKeyDown}
       role="button"
-      onClick={() => console.log('ttt')}
+      data-loading={isLoading}
+      disabled={disabled}
+    // ^기능
       ref={ref} 
-      {...props} 
       style={{
         ...assignInlineVars({
           [enableColorVariant]: enableColor,
@@ -47,9 +49,7 @@ const Button = (props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
         }),
         ...style,
       }}
-      data-loading={isLoading}
       className={clsx([buttonStyle({size, variant})])}
-      disabled={disabled}
     >
       {isLoading && <div className={spinnerStyle({size})} />}
       {leftIcon && <span className={spanStyle({size})}>{leftIcon}</span>}

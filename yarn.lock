@@ -2222,6 +2222,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@fastcampus/react-hooks-button@workspace:packages/react/hooks/button":
+  version: 0.0.0-use.local
+  resolution: "@fastcampus/react-hooks-button@workspace:packages/react/hooks/button"
+  dependencies:
+    "@fastcampus/esbuild-config": "workspace:^"
+    "@types/react": "npm:18"
+    "@types/react-dom": "npm:18"
+    clsx: "npm:^2.1.1"
+    react: "npm:18"
+    react-dom: "npm:18"
+    typescript: "npm:^5.2.2"
+  peerDependencies:
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
 "@fastcampus/storybook@workspace:services/storybook":
   version: 0.0.0-use.local
   resolution: "@fastcampus/storybook@workspace:services/storybook"
