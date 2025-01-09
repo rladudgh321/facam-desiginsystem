@@ -52,3 +52,6 @@ export const StyleSprinkles = createSprinkles(
   BorderStyleProperties,
   BoxShadowStyleProps,
 );
+// // props 전달
+// const cssString = StyleSprinkles({ backgroundColor: 'blue', fontSize: '16px' });
+// console.log(cssString); // "backgroundColor: blue; fontSize: 16px;"

@@ -1,16 +1,25 @@
 import { createElement, forwardRef, Ref } from "react";
-import { BoxProps } from "./types";
+import { FlexProps } from "./types";
 import { clsx } from "clsx";
 import { extractSparkleProps } from "../utils/properties";
 import { StyleSprinkles } from "../core/style.css";
 import { vars } from "@fastcampus/themes";
 
-const Box = (props: BoxProps, ref: Ref<HTMLElement>) => {
-  const { as="div", color, background, children } = props;
+const Flex = (props: FlexProps, ref: Ref<HTMLElement>) => {
+  const { as="div", color, background, children, align, basis, direction, grow, justify, shrink, wrap, gap } = props;
   return createElement(as, {
     ... props,
     ref,
     style: { 
+      display: "flex",
+      alignItems: align,
+      flexBasis: basis,
+      flexDirection: direction,
+      flexGrow: grow,
+      justifyContent: justify,
+      flexShrink: shrink,
+      flexWrap: wrap,
+      gap,
       color: color && vars.colors.$scale?.[color]?.[700],
       background: background && vars.colors.$scale?.[background]?.[100],
       ...props.style
@@ -23,5 +32,5 @@ const Box = (props: BoxProps, ref: Ref<HTMLElement>) => {
   }, children);
 }
 
-const _Box = forwardRef(Box);
-export { _Box as Box };
+const _Flex = forwardRef(Flex);
+export { _Flex as Flex };

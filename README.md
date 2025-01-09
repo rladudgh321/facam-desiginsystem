@@ -74,3 +74,47 @@ yarn add @fastcampus/themes   를 하면 된다
   $ yarn workspace @fastcampus/storybook dlx storybook@7 init --type react
   
   storybook 최신버전은 8버전이나 yarn pnp 관련해서 찾을 수 없는 현상이 있어서 version을 낮춰서 7버전 사용
+
+  -----------
+  StyleSprinkles(props)를 할경우 MarginAndPaddingProperties, BorderStyleProperties, BoxShadowStyleProps것 만 들어가야하는데
+  AsElementProps에 관한 것도 들어가기 때문에 오류가 발생된다
+  그래서 extractSparkleProps를 사용하여 걸러준다
+      className: clsx([StyleSprinkles(extractSparkleProps(props, Array.from(StyleSprinkles.properties))), props.className]),
+   props 전달하는 함수 -> 문자열 반환
+   const cssString = StyleSprinkles({ backgroundColor: 'blue', fontSize: '16px' });
+   console.log(cssString); // "backgroundColor: blue; fontSize: 16px;"
+   StyleSprinkles(객체)를 clsx에 반환해야 StyleSprinkles로 정의한 css들이 적용된다
+   그래서 Array.from(StyleSprinkles.properties) 이런거로는 안된다
+
+   properties 속성은 `Set` 객체를 반환 -> 그래서 Array.from을 사용하여 배열로 반환시킨다
+   console.log(sprinkles.properties); // Set { 'backgroundColor', 'fontSize' }
+   Array.from(sprinkles.properties) ['backgroundColor', 'fontSize']
+
+
+    console.log(Array.from(StyleSprinkles.properties))
+    (16) ['margin', 'padding', 'marginX', 'marginY', 'paddingX', 'paddingY', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft', 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft', 'borderRadius', 'boxShadow']
+    
+    console.log(StyleSprinkles(extractSparkleProps(props, Array.from(StyleSprinkles.properties))))
+    ar9t0u3j ar9t0u4d ar9t0u57 ar9t0u61 ar9t0u6s ar9t0u73
+
+
+    ------------
+      render: (args) => (
+    <_Flex {...args}>
+      <div>test</div>
+      <div>입니다</div>
+    </_Flex>
+    }
+
+    렌더함수를 돌릴수도 있다
+
+    ----------
+    decorators: [(Story) => <Box padding={3} style={{width:'300px', height:'300px'}} ><Story /></Box>],
+
+    데코레이터로 할수도 있다
+
+    ------------
+    render를 사용할때는 해당 컴포넌트를 자체를 사용할 때이고
+    <Flex></Flex>    
+    
+    decorator를 사용할떄는 부모 컴포넌트를 사용 할때이다

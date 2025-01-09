@@ -2177,6 +2177,29 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@fastcampus/react-components-button@workspace:^, @fastcampus/react-components-button@workspace:packages/react/components/button":
+  version: 0.0.0-use.local
+  resolution: "@fastcampus/react-components-button@workspace:packages/react/components/button"
+  dependencies:
+    "@fastcampus/esbuild-config": "workspace:^"
+    "@fastcampus/themes": "workspace:^"
+    "@types/react": "npm:18"
+    "@types/react-dom": "npm:18"
+    "@vanilla-extract/css": "npm:^1.17.0"
+    "@vanilla-extract/dynamic": "npm:^2.1.2"
+    "@vanilla-extract/esbuild-plugin": "npm:^2.3.13"
+    "@vanilla-extract/recipes": "npm:^0.5.5"
+    "@vanilla-extract/sprinkles": "npm:^1.6.3"
+    clsx: "npm:^2.1.1"
+    react: "npm:18"
+    react-dom: "npm:18"
+    typescript: "npm:^5.2.2"
+  peerDependencies:
+    "@fastcampus/themes": "workspace:^"
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
 "@fastcampus/react-components-layout@workspace:^, @fastcampus/react-components-layout@workspace:packages/react/components/layout":
   version: 0.0.0-use.local
   resolution: "@fastcampus/react-components-layout@workspace:packages/react/components/layout"
@@ -2187,6 +2210,7 @@ __metadata:
     "@types/react-dom": "npm:18"
     "@vanilla-extract/css": "npm:^1.17.0"
     "@vanilla-extract/esbuild-plugin": "npm:^2.3.13"
+    "@vanilla-extract/recipes": "npm:^0.5.5"
     "@vanilla-extract/sprinkles": "npm:^1.6.3"
     clsx: "npm:^2.1.1"
     react: "npm:18"
@@ -2202,6 +2226,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fastcampus/storybook@workspace:services/storybook"
   dependencies:
+    "@fastcampus/react-components-button": "workspace:^"
     "@fastcampus/react-components-layout": "workspace:^"
     "@fastcampus/themes": "workspace:^"
     "@storybook/addon-essentials": "npm:7.6.20"
@@ -5006,6 +5031,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vanilla-extract/dynamic@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@vanilla-extract/dynamic@npm:2.1.2"
+  dependencies:
+    "@vanilla-extract/private": "npm:^1.0.6"
+  checksum: 10c0/7361863bbc1260fda447be80e888e3ad5dea09957651288d7aba81ba7f59594d11476a840c9162adc452f9a43dbc379b58621b5b500a49f537b0efc7737aac9c
+  languageName: node
+  linkType: hard
+
 "@vanilla-extract/esbuild-plugin@npm:^2.3.13":
   version: 2.3.13
   resolution: "@vanilla-extract/esbuild-plugin@npm:2.3.13"
@@ -5044,6 +5078,15 @@ __metadata:
   version: 1.0.6
   resolution: "@vanilla-extract/private@npm:1.0.6"
   checksum: 10c0/f1c4d9f32f509f664b2d073ea114ff0a83f154bd3cdae429cade64ad1ca0fdc1ba745f2811496cc6a6f8e5513a9a0fa3798ffc41e6ff8868aa7f06c825f615ef
+  languageName: node
+  linkType: hard
+
+"@vanilla-extract/recipes@npm:^0.5.5":
+  version: 0.5.5
+  resolution: "@vanilla-extract/recipes@npm:0.5.5"
+  peerDependencies:
+    "@vanilla-extract/css": ^1.0.0
+  checksum: 10c0/5e032bc3f7873b1deb39fc64e2ab6871ac3d70dd527309b4e08310def142180fd346df48ca33306ac0ea7626673856e3995fab03f56f54a967c48a3e5e4545d3
   languageName: node
   linkType: hard
 
