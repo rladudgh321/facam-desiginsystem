@@ -1,35 +1,95 @@
-// props로 button의 기능들을 받아와야 함
-//  return으로 Button 또는 각 컴포넌트의 속성을 리턴 
-//        => 버튼에서 필요한 속성도 추가
+import { BaseButtonProps, OverloadedButtonFunction } from "./types";
 
-import { ComponentProps, HTMLAttributes } from "react";
+export const useButton: OverloadedButtonFunction = (props: any): any => {
+  const {
+    elementType = "button",
+    type = "button",
+    isDisabled,
+    isLoading,
+    tabIndex,
+    onKeyDown,
+  } = props;
 
-export type ButtonElementType = "button" | "a" | "div" | "span" | "input";
+  const disabled = isDisabled | isLoading;
 
-export type BaseButtonProps<T extends ButtonElementType = "button"> = {
-  elementType?: T;
-  role?: string;
-  type?: "button" | "submit" | "reset";
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  tabIndex?: number;
-} & ComponentProps<T>;
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    onKeyDown?.(e); // 외부에서 전달된 onKeyDown 콜백 실행
+    if(e.key === 'Space' || e.code === "Space" || e.key === " ") {
+      if(disabled) return;
+      if(e.defaultPrevented) return;
+      if(elementType === 'button') return;
 
-export type UseButtonReturn<T> = {
-  buttonProps: HTMLAttributes<T> & {
-    role?: string;
-    type?: "button" | "submit" | "reset";
-    tabIndex?: number;
-    disabled?: boolean;
-    "data-loading": boolean;
+      e.preventDefault(); // 기본 동작(예: 폼 제출) 방지
+      (e.currentTarget as HTMLElement).click(); // 버튼 클릭 이벤트 발생
+      return;
+    }
+
+    if (e.key === "Enter" || e.code === "Enter") { // Enter 키 또는 키코드 13인 경우
+      if(disabled) return;
+      if(e.defaultPrevented) return;
+      if(elementType === 'input' &&  type !== 'button') return;
+
+      e.preventDefault(); // 기본 동작(예: 폼 제출) 방지
+      (e.currentTarget as HTMLElement).click(); // 버튼 클릭 이벤트 발생
+      return;
+    }
+
+  };
+  const baseProps = {
+    ...props,
+    "data-loading": isLoading,
+    tabIndex: disabled ? -1 : tabIndex ?? 0,
+    onKeyDown: handleKeyDown
   }
-}
 
-export type OverloadeButtonFunction = {
-  (props: BaseButtonProps<"button">): UseButtonReturn<HTMLButtonElement>;
-  (props: BaseButtonProps<"a">): UseButtonReturn<HTMLAnchorElement>;
-  (props: BaseButtonProps<"div">): UseButtonReturn<HTMLDivElement>;
-  (props: BaseButtonProps<"input">): UseButtonReturn<HTMLInputElement>;
-  (props: BaseButtonProps<"span">): UseButtonReturn<HTMLSpanElement>;
+  let additionalProps = {};
 
+  switch(elementType) {
+    case "button" : {
+      additionalProps = {
+        type: type ?? "button",
+        disabled,
+      }
+      break;
+    }
+
+    case "a": {
+      const { href, target, rel } = props as BaseButtonProps<"a">;
+      additionalProps = {
+        role: "button",
+        href: disabled ? undefined : href,
+        target: disabled ? undefined :target,
+        rel: disabled ? undefined : rel,
+        "area-disabled": isDisabled,
+      }
+      break;
+    }
+
+    case "input": {
+      additionalProps = {
+        role: "button",
+        type: type ?? "button",
+        "area-disabled": isDisabled,
+      }
+      break;
+    }
+
+    default: {
+      additionalProps = {
+        role: "button",
+        type: type ?? "button",
+        "area-disabled": isDisabled
+      }
+    }
+      break;
+  }
+
+  const buttonProps = {
+    ...baseProps,
+    ...additionalProps,
+  }
+
+  return {
+    buttonProps,
+  }
 }

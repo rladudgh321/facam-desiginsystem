@@ -15,10 +15,11 @@
     "build:js": "node build.js",
     "build:type": "tsc --emitDeclarationOnly",
     "clean": "rm -rf dist",
-    "dev": "yarn build:js --watch && yarn build:type --watch"
+    "dev": "yarn build:js --watch & yarn build:type --watch"
   },
   "devDependencies": {
     "@fastcampus/esbuild-config": "workspace:^",
+    "@fastcampus/react-hooks-button": "workspace:^",
     "@fastcampus/themes": "workspace:^",
     "@types/react": "18",
     "@types/react-dom": "18",

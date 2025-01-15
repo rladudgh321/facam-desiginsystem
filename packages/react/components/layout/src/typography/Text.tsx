@@ -2,7 +2,7 @@ import { createElement, forwardRef, Ref } from "react";
 import { TextProps } from "./types";
 import { vars } from "@fastcampus/themes";
 import { clsx } from "clsx";
-import { StyleSprinkles } from "../core/style.css";
+import { BaseStyle, StyleSprinkles } from "../core/style.css";
 import { extractSparkleProps } from "../utils/properties";
 import { textStyle } from "./style.css";
 
@@ -17,6 +17,7 @@ const Text = (props: TextProps, ref: Ref<HTMLElement>) => {
         ...props.style
        },
       className: clsx([
+        BaseStyle,
         StyleSprinkles(extractSparkleProps(props, Array.from(StyleSprinkles.properties))), 
         textStyle({
           fontSize

@@ -1,7 +1,7 @@
 import { createElement, forwardRef, Ref } from "react";
 import { GridProps } from "./types";
 import { clsx } from "clsx";
-import { StyleSprinkles } from "../core/style.css";
+import { BaseStyle, StyleSprinkles } from "../core/style.css";
 import { extractSparkleProps } from "../utils/properties";
 import { vars } from "@fastcampus/themes";
 
@@ -11,6 +11,7 @@ const Grid = (props: GridProps, ref: Ref<HTMLElement>) => {
     ...props,
     ref,
     className: clsx([
+      BaseStyle,
       StyleSprinkles(extractSparkleProps(props, Array.from(StyleSprinkles.properties))), props.className,
     ]),
     style: {

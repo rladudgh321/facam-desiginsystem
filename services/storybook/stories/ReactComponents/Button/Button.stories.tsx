@@ -1,7 +1,10 @@
 import { Button as _Button } from '@fastcampus/react-components-button';
 import "@fastcampus/react-components-layout/style.css";
 import "@fastcampus/react-components-button/style.css";
+import { useButton, useToggleButton } from '@fastcampus/react-hooks-button';
 import { vars } from '@fastcampus/themes';
+import { Text as _Text } from '@fastcampus/react-components-layout';
+
 export default {
   title: "React Componenets/Button",
   component: _Button,
@@ -35,3 +38,45 @@ export const ButtonStory = {
   },
   render: (args) => <_Button {...args} leftIcon={'🍕'} rightIcon={'🍔'} />
 };
+
+export const TextStory = {
+  render: () => {
+    const { buttonProps } = useButton({
+      elementType: "div",
+      onClick() {
+        console.log('ttt');
+      },
+    });
+
+    return (
+      <_Text {...buttonProps}
+        as='div'
+        fontSize="md"
+        color="green"
+        style={{
+          userSelect:"none",
+          cursor:"pointer"
+        }}
+      >
+        텍스트 버튼입니다
+      </_Text>
+    )
+  }
+}
+
+export const ToggleStory = {
+  render: () => {
+    const { buttonProps, isSelected } = useToggleButton({
+      elementType: "button",
+    }, false);
+
+    return (
+      <_Button {...buttonProps}
+        variant={isSelected ? "solid" : "outline"}
+        color="green"
+      >
+        {isSelected ? "haha" : "hoho"}
+      </_Button>
+    )
+  }
+}
