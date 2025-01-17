@@ -2,6 +2,7 @@
   "name": "@fastcampus/storybook",
   "packageManager": "yarn@4.6.0",
   "devDependencies": {
+    "@fastcampus/react-components-accordion": "workspace:^",
     "@fastcampus/react-components-button": "workspace:^",
     "@fastcampus/react-components-layout": "workspace:^",
     "@fastcampus/react-hooks-button": "workspace:^",
