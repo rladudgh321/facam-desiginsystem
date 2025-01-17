@@ -1,6 +1,7 @@
 import { vars } from "@fastcampus/themes";
 import { AsElementProps, StyleProps } from "../core/types";
 import { CSSProperties } from "@vanilla-extract/css";
+import { TextProps } from "../typography";
 
 // 이렇게 만들면 주어진 파라미터 외에도 스타일이나 다양한 속성들을 커스터마이징이 용이
 export type BoxProps = AsElementProps & StyleProps;
@@ -46,3 +47,15 @@ export type GridItemProps = BoxProps & {
   rowSpan?: number | "auto";
   rowStart?: number | "auto";
 }
+
+export type ListProps = {
+  variant?: "ordered" | "unordered";
+  spacing?: keyof typeof vars.box.spacing;
+} & BoxProps;
+
+export type OrderListProps = Omit<ListProps, "variant">;
+export type ListItemProps = TextProps;
+
+export type UnorderedListProps = Omit<ListProps, "variant"> & {
+  listStyleType?: CSSProperties["listStyleType"];
+};
