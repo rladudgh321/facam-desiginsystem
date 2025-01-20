@@ -1,0 +1,9 @@
+{
+  "extends":"../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+  }
+}
+// esbuild는 tsconfig 전부를 설정해주는 것이 아니라 특정 속성만 설정할 수 있다.
+// 그외 설정은 ignore가 된다고 한다 그래서 ignore가 된다고 하니까 신경쓰지말고 설정하면 된다.
+// 다만 안될 때 

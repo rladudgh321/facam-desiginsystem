@@ -15,6 +15,7 @@
   },
   "packageManager": "yarn@4.6.0",
   "devDependencies": {
+    "@fastcampus/react-components-toast": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
     "eslint": "^8.48.0",
