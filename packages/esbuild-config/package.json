@@ -5,10 +5,6 @@
   "files": [
     "index.js"
   ],
-  "scripts": {
-    "build": "echo \"Tada!\"",
-    "test": "echo \"No tests yet!\""
-  },
   "dependencies": {
     "esbuild": "0.16.17"
   }

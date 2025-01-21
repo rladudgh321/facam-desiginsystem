@@ -15,7 +15,7 @@ export default {
 };
 
 export const InputStory = {
-  render: () => <Input placeholder="dd" />,
+  render: () => <Input variant="outline" placeholder="dd" />,
 };
 
 export const InputGroupStory = {

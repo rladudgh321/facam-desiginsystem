@@ -6,9 +6,11 @@
     "services/**/*"
   ],
   "scripts": {
+    "affected:build": "nx affected -t build",
+    "affected:test": "nx affected -t test",
     "build:init": "nx run-many --target=build --projects='@fastcampus/themes'",
     "dev:all": "yarn dev:storybook & yarn dev:packages",
-    "build": "nx build",
+    "build:local": "nx build",
     "graph": "nx run-many --target=build --graph",
     "dev:storybook": "nx storybook @fastcampus/storybook",
     "dev:packages": "nx run-many --target=dev --projects='@fastcampus/react-hooks-*,@fastcampus/react-components-*'"
